@@ -109,7 +109,7 @@ db.compact_all()?;    // full compaction down to the bottom level
 println!("{:?}", db.stats().write_amplification());
 ```
 
-Docker (needs Docker; CI builds this image on every push):
+Docker (image built and smoke-tested locally; CI also builds it on every push):
 
 ```bash
 docker compose run --rm shell     # interactive shell, data in a named volume
