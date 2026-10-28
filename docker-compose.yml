@@ -1,0 +1,17 @@
+services:
+  # Interactive shell on a persistent volume:  docker compose run --rm shell
+  shell:
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - lsm-data:/data
+
+  # Reproduce the benchmark table inside a container:  docker compose run --rm bench
+  bench:
+    build: .
+    entrypoint: ["bench"]
+    command: ["200000"]
+
+volumes:
+  lsm-data:

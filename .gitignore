@@ -1,0 +1,5 @@
+target/
+*.bundle
+*.zip
+lsm-data/
+.env

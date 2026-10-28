@@ -1,0 +1,19 @@
+[package]
+name = "lsm-tree-storage-engine"
+version = "0.1.0"
+edition = "2021"
+description = "LevelDB-style LSM-tree key-value storage engine in dependency-free Rust"
+license = "MIT"
+
+[lib]
+name = "lsm_engine"
+path = "src/lib.rs"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+debug = false
+
+[profile.test]
+opt-level = 1
