@@ -7,8 +7,6 @@ A LevelDB-style **LSM-tree key-value storage engine** in dependency-free Rust: w
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-> Project 16 of Karim's 30 Days, 30 Projects series.
-
 ## Why this exists
 
 Almost every modern write-heavy datastore (RocksDB, Cassandra, HBase, ScyllaDB, CockroachDB's Pebble) is built on a log-structured merge tree. B-trees update pages in place, which turns every small write into a random disk write. An LSM tree instead **buffers writes in memory, logs them sequentially, and merges sorted files in the background**, trading some read and space amplification for very cheap writes. This project builds that machinery from scratch, with every moving part (WAL framing, block format, bloom filter, manifest, compaction picker, merge iterator) written by hand and measured.
